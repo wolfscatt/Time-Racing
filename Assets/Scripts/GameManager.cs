@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public bool isDead = false;
     private void Awake() {
         if(instance == null)
         {
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        isDead = false;
         Time.timeScale = 1;
     }
     void Update()
@@ -45,5 +47,9 @@ public class GameManager : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+    public void GameOver()
+    {
+        isDead = true;
     }
 }

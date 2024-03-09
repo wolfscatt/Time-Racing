@@ -5,17 +5,17 @@ using UnityEngine;
 public class DieController : MonoBehaviour
 {
     public GameObject diePanel;
-    public bool isDead = false;
+    private bool _isDead;
 
     private void Start()
     {
-        isDead = false;
         diePanel.SetActive(false);
         Time.timeScale = 1;
 
     }
     private void Update()
     {
+        _isDead = GameManager.Instance.isDead;
         DiePanel();
 
     }
@@ -24,13 +24,13 @@ public class DieController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            isDead = true;
+            GameManager.Instance.GameOver();
         }
     }
 
     private void DiePanel()
     {
-        if (isDead)
+        if (_isDead)
         {
             diePanel.SetActive(true);
             Time.timeScale = 0;
