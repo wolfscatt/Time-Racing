@@ -15,6 +15,10 @@ public class UIManager : MonoBehaviour
     }
     public void MainMenu()
     {
+        GameManager.Instance.MainMenu();
+    }
 
+    public void StartGame(){
+        GameManager.Instance.StartGame();
     }
 }

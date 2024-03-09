@@ -14,10 +14,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    [SerializeField] private GameObject dieControllerObject;
-    private DieController dieController;
-    public GameObject diePanel;
-
     private void Awake() {
         if(instance == null)
         {
@@ -30,32 +26,24 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        dieController = dieControllerObject.GetComponent<DieController>();
-        diePanel.SetActive(false);
         Time.timeScale = 1;
     }
     void Update()
     {
-        if (dieController.isDead)
-        {
-            // Oyun Biter ve UI açılır. UI içerisinde Yeniden oyna, çıkış yap ve ana menüye dön butonları bulunur.
-            OpenDiePanel();
-        }
+        
     }
-    private void OpenDiePanel()
-    {
-        diePanel.SetActive(true);
-        Time.timeScale = 0;
-    }
-
     public void StartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(1);
         Time.timeScale = 1;
     }
 
     public void ExitGame()
     {
         Application.Quit();
+    }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
