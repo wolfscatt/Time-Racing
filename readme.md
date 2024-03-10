@@ -21,9 +21,9 @@
 
 
 ## My Teammates
-* Şebnem Tan
-* Buse Kanlı
-* Halil İbrahim Eriş
+* [Şebnem Tan](https://github.com/sebnemtan)
+* [Buse Kanlı](https://github.com/busekanli)
+* [Halil İbrahim Eriş](https://github.com/halilibrahimeris)
 
 
 *This project was created for the TeduJam event.*
