@@ -81,7 +81,7 @@ public class SelectAnyCart : MonoBehaviour
         if (selectedText != null)
         {
             Debug.Log("Button " + buttonId + " text: " + selectedText);
-            StartCoroutine(WaitAndCallSelectedText());
+            SelectedText();
 
         }
         else
@@ -89,10 +89,5 @@ public class SelectAnyCart : MonoBehaviour
             Debug.LogWarning("Button " + buttonId + " text not found!");
         }
     }
-    IEnumerator WaitAndCallSelectedText()
-    {
-        yield return new WaitForSeconds(2f);
-        SelectedText();
-    }
-
+    
 }
