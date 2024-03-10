@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class SpawnCharacter : MonoBehaviour
@@ -8,7 +9,7 @@ public class SpawnCharacter : MonoBehaviour
     private Vector3 spawnPoint; // Karakterin spawn olacağı nokta
     public GameObject spawnEffectPrefab; // Spawn efekti prefab'ı
     public float spawnTime = 2f; // Spawn süresi
-
+    public float spawnDuration = 1.5f;
     private void Start()
     {
         StartCoroutine(SpawnCharacterWithEffect());
@@ -21,6 +22,8 @@ public class SpawnCharacter : MonoBehaviour
 
         // Spawn efektini oluştur
         GameObject spawnEffect = Instantiate(spawnEffectPrefab, transform.position, Quaternion.identity);
+        
+
 
         // Karakteri yavaş yavaş spawn et
         float elapsedTime = 0f;
@@ -32,8 +35,10 @@ public class SpawnCharacter : MonoBehaviour
 
         // Spawn efektini yok et
         Destroy(spawnEffect);
-
-        // Karakteri spawn et
         GameObject character = Instantiate(characterPrefab, spawnPoint, Quaternion.identity);
+
+        // Karakterin yavaşça ekrana gelmesini sağla
+        character.transform.DOScale(Vector3.one, spawnDuration).From().SetEase(Ease.OutBack); // 1'e animasyonla yavaşça büyüt
+
     }
 }

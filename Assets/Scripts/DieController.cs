@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class DieController : MonoBehaviour
 {
@@ -11,7 +12,6 @@ public class DieController : MonoBehaviour
     {
         diePanel.SetActive(false);
         Time.timeScale = 1;
-
     }
     private void Update()
     {
