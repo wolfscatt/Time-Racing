@@ -19,12 +19,18 @@ public class CharacterController : MonoBehaviour
     private Animator charAnim;
     private SpriteRenderer spriteRenderer;
 
+    [Header("Audio")]
+    public AudioClip runAudio;
+    public AudioClip jumpAudio;
+    public AudioClip walkAudio;
+    private AudioSource audioSource;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         camera = Camera.main;
         charAnim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -44,6 +50,25 @@ public class CharacterController : MonoBehaviour
             }
         }
         charAnim.SetFloat("speed", Mathf.Abs(moveInput));
+        // Hareket sırasında ses efekti
+        if(Mathf.Abs(moveInput) < 0.5f && Mathf.Abs(moveInput) > 0.01f)
+        {
+            audioSource.clip = walkAudio;
+            if(!audioSource.isPlaying)
+                audioSource.Play();
+        }
+        else if(Mathf.Abs(moveInput) > 0.5f)
+        {
+            audioSource.clip = runAudio;
+            if(!audioSource.isPlaying)
+                audioSource.Play();
+        }
+        else if(Mathf.Abs(moveInput) < 0.01f)
+        {
+            audioSource.clip = null;
+            if(audioSource.isPlaying)
+                audioSource.Stop();
+        }
 
         if(isGrounded && jumpInput > 0)
         {
@@ -59,6 +84,7 @@ public class CharacterController : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isGrounded = false;
             jump = false;
+            audioSource.PlayOneShot(jumpAudio);
         }
         charPos = transform.position;
     }
