@@ -9,6 +9,11 @@
 
 <div>
     <img src="/Assets/texture/level1.png">
+    <img src="/Assets/texture/level2.png">
+    <img src="/Assets/texture/level2-2.png">
+    <img src="/Assets/texture/die.png">
+    <img src="/Assets/texture/start.png">
+    <img src="/Assets/texture/winScene.png">
 </div>
 
 
