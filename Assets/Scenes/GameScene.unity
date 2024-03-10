@@ -866,7 +866,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 1, b: 0.1610434, a: 0}
+  m_BackGroundColor: {r: 0.8078432, g: 0.93725497, b: 0.9921569, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -13267,7 +13267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03122c2ff8f6df54e92199e69e46b2aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterPrefab: {fileID: 3606482943564005198, guid: c54451838d2750b42acfc3b80476976b, type: 3}
+  characterPrefab: {fileID: 8550587410665708926, guid: 065863315f12d434387686ee53131ea2, type: 3}
   spawnEffectPrefab: {fileID: 5646908022064218149, guid: 23b795153d972664bb78f22f3eb12a04, type: 3}
   spawnTime: 2
   spawnDuration: 1.5

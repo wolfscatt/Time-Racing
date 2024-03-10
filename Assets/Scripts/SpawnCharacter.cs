@@ -13,7 +13,7 @@ public class SpawnCharacter : MonoBehaviour
     private void Start()
     {
         StartCoroutine(SpawnCharacterWithEffect());
-        spawnPoint = new Vector3(-7.72f, -1.4f, 0);
+        spawnPoint = transform.position;
     }
 
     private IEnumerator SpawnCharacterWithEffect()

@@ -16,16 +16,34 @@ public class CharacterController : MonoBehaviour
     private bool jump;
     private Vector3 charPos;
     private Camera camera;
+    private Animator charAnim;
+    private SpriteRenderer spriteRenderer;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         camera = Camera.main;
+        charAnim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
         moveInput = Input.GetAxis("Horizontal");
         jumpInput = Input.GetAxis("Vertical");
+
+        // Sa�a ve sola hareketler
+        if ( moveInput != 0)
+        {
+            if(moveInput > 0) 
+            { 
+                spriteRenderer.flipX = false;
+            }else if(moveInput < 0)
+            {
+                spriteRenderer.flipX = true;
+            }
+        }
+        charAnim.SetFloat("speed", Mathf.Abs(moveInput));
 
         if(isGrounded && jumpInput > 0)
         {
